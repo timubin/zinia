@@ -64,7 +64,7 @@ a {
 .brand {
   font-size: 1.5rem;
   font-weight: 800;
-  letter-spacing: -1px;
+  letter-spacing: 0;
   color: var(--cyan);
   text-shadow: 0 0 10px rgba(0, 240, 255, 0.5);
   display: flex;
@@ -88,7 +88,7 @@ nav a {
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 0;
 }
 
 nav a:hover, nav a.active {
@@ -137,7 +137,7 @@ nav a:hover, nav a.active {
   color: var(--pink);
   font-size: 0.9rem;
   font-weight: 800;
-  letter-spacing: 2px;
+  letter-spacing: 0;
   text-transform: uppercase;
   border: 1px solid var(--pink);
   padding: 6px 14px;
@@ -148,10 +148,10 @@ nav a:hover, nav a.active {
 
 h1 {
   margin-bottom: 24px;
-  font-size: clamp(2.8rem, 6.5vw, 5.5rem);
+  font-size: 5.1rem;
   font-weight: 800;
   line-height: 0.95;
-  letter-spacing: -2px;
+  letter-spacing: 0;
   color: var(--ink);
   text-transform: uppercase;
 }
@@ -167,7 +167,7 @@ h1 span {
 .hero-line {
   max-width: 680px;
   color: var(--muted);
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
+  font-size: 1.28rem;
   line-height: 1.6;
   margin-bottom: 36px;
 }
@@ -189,7 +189,7 @@ h1 span {
   border-radius: 12px;
   font-size: 1rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
+  letter-spacing: 0;
   cursor: pointer;
   transition: var(--transition);
 }
@@ -328,7 +328,7 @@ h1 span {
 }
 
 .section h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 40px;
   text-transform: uppercase;
@@ -727,21 +727,62 @@ footer a:hover {
 /* Responsive design */
 @media (max-width: 960px) {
   .site-header {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+  }
+
+  .brand {
+    flex: 0 0 auto;
+    font-size: 1.22rem;
   }
   
   nav {
-    width: 100%;
-    justify-content: space-between;
-    margin-top: 12px;
+    flex: 1;
+    width: auto;
+    max-width: calc(100% - 118px);
+    justify-content: flex-start;
+    gap: 10px;
+    margin-top: 0;
+    overflow-x: auto;
+    padding: 2px 0 6px;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    flex: 0 0 auto;
+    padding: 9px 12px;
+    border: 1px solid rgba(0, 240, 255, 0.22);
+    border-radius: 999px;
+    background: rgba(12, 19, 37, 0.82);
+    color: #dbeafe;
+    font-size: 0.78rem;
   }
 
   .hero {
     flex-direction: column;
-    padding-top: 60px;
     align-items: flex-start;
+    min-height: auto;
+    padding: 54px 20px 34px;
+    background:
+      linear-gradient(135deg, rgba(0, 240, 255, 0.1), transparent 34%),
+      linear-gradient(235deg, rgba(255, 0, 127, 0.12), transparent 44%);
+  }
+
+  h1 {
+    font-size: 4.2rem;
+  }
+
+  .section h2 {
+    font-size: 2.35rem;
+  }
+
+  .hero-line {
+    font-size: 1.12rem;
   }
   
   .hero-stickers {
@@ -779,18 +820,278 @@ footer a:hover {
 }
 
 @media (max-width: 560px) {
+  body {
+    background:
+      linear-gradient(125deg, rgba(0, 240, 255, 0.12), transparent 32%),
+      linear-gradient(235deg, rgba(255, 0, 127, 0.14), transparent 42%),
+      linear-gradient(180deg, #050816 0%, #081225 48%, #120718 100%);
+  }
+
+  .site-header {
+    position: sticky;
+    top: 0;
+    flex-direction: row;
+    padding: 12px 12px 10px;
+    border-bottom-color: rgba(0, 240, 255, 0.28);
+  }
+
+  .brand {
+    font-size: 1.02rem;
+    white-space: nowrap;
+  }
+
+  nav {
+    max-width: calc(100% - 96px);
+    gap: 8px;
+  }
+
+  nav a {
+    padding: 8px 11px;
+    font-size: 0.72rem;
+  }
+
+  .hero {
+    padding: 34px 16px 28px;
+    border-bottom: 1px solid rgba(0, 240, 255, 0.18);
+  }
+
+  .hero::before {
+    content: "";
+    position: absolute;
+    right: -70px;
+    bottom: 16px;
+    width: 190px;
+    aspect-ratio: 3 / 4;
+    border: 3px solid rgba(255, 255, 255, 0.14);
+    border-radius: 24px;
+    background: url("../assets/profile-card.png") center / cover no-repeat;
+    box-shadow: 0 20px 50px rgba(255, 0, 127, 0.26);
+    opacity: 0.42;
+    transform: rotate(-6deg);
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .eyebrow {
+    margin-bottom: 14px;
+    padding: 6px 11px;
+    font-size: 0.68rem;
+    letter-spacing: 0;
+  }
+
+  h1 {
+    max-width: 9ch;
+    margin-bottom: 18px;
+    font-size: 3rem;
+    line-height: 1;
+  }
+
+  .hero-line {
+    max-width: 330px;
+    margin-bottom: 26px;
+    color: #d4e7ff;
+    font-size: 1rem;
+  }
+
+  .hero-actions {
+    display: grid;
+    width: min(100%, 330px);
+    gap: 10px;
+  }
+
+  .button {
+    width: 100%;
+    min-height: 52px;
+    border-radius: 14px;
+  }
+
+  .button.primary {
+    background: linear-gradient(135deg, var(--cyan), var(--green));
+  }
+
+  .button.ghost {
+    border-color: rgba(255, 255, 255, 0.22);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  .hero-stickers {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    margin-top: 30px;
+  }
+
+  .sticker {
+    justify-content: center;
+    min-height: 46px;
+    padding: 9px 10px;
+    border-width: 2px;
+    border-radius: 16px;
+    font-size: 0.88rem;
+    animation: none;
+  }
+
   .quick-strip {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100% - 24px, 1200px);
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .quick-strip article {
+    min-height: 118px;
+    padding: 15px;
+    border-color: rgba(255, 255, 255, 0.08);
+    border-radius: 18px;
+    background: linear-gradient(145deg, rgba(0, 240, 255, 0.12), rgba(12, 19, 37, 0.92));
+  }
+
+  .quick-strip article:nth-child(2) {
+    background: linear-gradient(145deg, rgba(255, 0, 127, 0.14), rgba(12, 19, 37, 0.92));
+  }
+
+  .quick-strip article:nth-child(3) {
+    background: linear-gradient(145deg, rgba(57, 255, 20, 0.12), rgba(12, 19, 37, 0.92));
+  }
+
+  .quick-strip article:nth-child(4) {
+    background: linear-gradient(145deg, rgba(255, 215, 0, 0.13), rgba(12, 19, 37, 0.92));
+  }
+
+  .quick-strip strong {
+    font-size: 0.96rem;
+    line-height: 1.25;
+  }
+
+  .quick-strip span {
+    font-size: 0.8rem;
+    line-height: 1.35;
   }
   
-  nav {
-    flex-wrap: wrap;
-    gap: 16px;
+  .section {
+    width: min(100% - 24px, 1200px);
+    margin: 70px auto;
+  }
+
+  .section h2 {
+    margin-bottom: 24px;
+    font-size: 1.95rem;
+    line-height: 1.12;
+  }
+
+  .intro-copy p {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .profile-feature {
+    max-width: 320px;
+  }
+
+  .profile-feature img,
+  .evidence-hero {
+    border-width: 3px;
+    border-radius: 18px;
+  }
+
+  .selection-panel,
+  .promise {
+    width: 100%;
+    padding: 24px 14px;
+    border-radius: 20px;
+  }
+
+  .selection-grid,
+  .project-grid,
+  .evidence-grid,
+  .promise-list {
+    gap: 14px;
+  }
+
+  .selection-grid article,
+  .project-card,
+  .evidence-grid article {
+    padding: 18px;
+    border-radius: 18px;
+    background: rgba(12, 19, 37, 0.92);
+  }
+
+  .selection-grid span {
+    width: 42px;
+    height: 42px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+  }
+
+  .skill-cloud {
+    gap: 10px;
+  }
+
+  .skill-cloud span {
+    padding: 10px 13px;
+    font-size: 0.86rem;
+  }
+
+  .project-card {
+    min-height: auto;
+  }
+
+  .project-card h3,
+  .evidence-grid h3 {
+    font-size: 1.15rem;
+  }
+
+  .evidence-hero {
+    margin-bottom: 18px;
+  }
+
+  .evidence-grid img {
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background: #050816;
+  }
+
+  .sim-container {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .sim-screen {
+    min-height: 210px;
+    padding: 15px;
+    font-size: 0.78rem;
+    line-height: 1.55;
+  }
+
+  .sim-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .promise-list p {
+    padding: 18px;
+    border-radius: 0 14px 14px 0;
   }
   
   footer {
     flex-direction: column;
     align-items: center;
     text-align: center;
+  }
+}
+
+@media (max-width: 380px) {
+  h1 {
+    font-size: 2.58rem;
+  }
+
+  .quick-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hero::before {
+    width: 150px;
+    opacity: 0.32;
   }
 }
